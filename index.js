@@ -26,6 +26,15 @@ io.on("connection", (socket) => {
     console.log("comments");
     io.emit("receive_comments", data);
   });
+
+  socket.on("send_all_users", (data) => {
+    console.log("all users");
+    io.emit("receive_all_users", data);
+  });
+  socket.on("send_user", (data) => {
+    console.log("user");
+    io.emit("receive_user", data);
+  });
 });
 
 const port = process.env.PORT || 8800;
